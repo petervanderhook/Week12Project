@@ -118,4 +118,11 @@ function sidebarContactsClick(contacts) {
     cleanUpIndex()
     renderIndex(contactList)
 }
+const createButton = document.querySelector('#newcontact.nav')
+contactsButton.addEventListener('click', sidebarContactsClick)
+function sidebarContactsClick(contacts) {
+    contacts.preventDefault()
+    cleanUpIndex()
+    renderCreate()
+}
 
