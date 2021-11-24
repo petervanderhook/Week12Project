@@ -1,0 +1,95 @@
+
+* {
+    font-family: 'Nunito', sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+nav {
+    align-items: center;
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #9ccfd8;
+    min-width: 25vw;
+}
+
+.navbutton {
+    margin-top: 1rem;
+    padding: .5rem;
+    background-color: #9ccfd850;
+}
+.navbutton:hover {
+    margin-top: 1rem;
+    padding: .5rem;
+    background-color: #23213630;
+}
+.gridbox {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "topleft topright"
+        "bottomleft bottomright" ;
+    width: 68vw; /*30vw width for each block in grid*/
+    column-gap: 3vw;
+    row-gap: 5vw;
+    min-height: 95vh; /* 40vh heigh for each block in grid */
+    margin-top: 2vh;
+    margin-left: 4vw;
+
+}
+.bodyclass {
+    background-color: 	#faf4ed;
+    min-width: 75vw;
+    padding: 0;
+    height: 100vh;
+}
+
+.topleft {
+    grid-area: topleft;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.contactfont {
+    font-style: 'Nunito', sans-serif;
+}
+
+.contactsGrid {
+    margin: 5vw;
+    display: grid;
+    grid-template-columns: auto ;
+    grid-template-rows: 9rem;
+    grid-template-areas: "contactgridbox contactgridbox contactgridbox";
+    gap: 5vw;
+
+}
+
+.contactsGrid > div {
+    background-color: #23213620;
+    padding: 2px;
+}
+
+.savecontactbutton {
+    margin: 0%;
+    border: 0px;
+    border-radius: 5%;
+    padding: 1rem;
+    background-color: #56949f;
+}
+.closebutton {
+    margin: 0%;
+    border: 0px;
+    border-radius: 5%;
+    padding: 1rem;
+    background-color:#d7827e;
+}
+

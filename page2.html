@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body> 
+    <nav>
+        <h1>
+            Contacts
+        </h1>
+        <div class="navbutton">Create New Contact +</div>
+        <div class="navbutton">Show Favorites</div>
+    </nav>
+    <div class="bodyclass">
+        <div style="display: flex;flex-direction: column;padding: 5vw;min-width: 15vw;max-width: 18rem;gap: 2vh;">
+            <img src="images/account.png" style="width: 8rem;height: 8rem;margin-left: 10px;"  alt="Profile Picture">
+            <div style="display: flex;flex-direction: row;justify-content: center;align-content: center;">
+                <textarea cols="20" rows="1" style="border: 2px solid;border-radius:4%;resize:none;padding: .5rem; ">Contact Name</textarea>
+                <strong style="color: #faf4ed;font-size: xx-large;">+</strong>
+            </div>
+            <div style="display: flex;flex-direction: row;justify-content: center;align-content: center;">
+                <textarea cols="20" rows="1" style="border: 2px solid;border-radius:4%;resize:none;padding: .5rem;">Contact Phone</textarea><strong style="font-size: xx-large;">+</strong>
+            </div>
+            <div style="display: flex;flex-direction: row;justify-content: center;align-content: center;">
+                <textarea cols="20" rows="1" style="border: 2px solid;border-radius:4%;resize:none;padding: .5rem;">Contact Address</textarea><strong style="font-size: xx-large;">+</strong>
+            </div>
+            <div style="display: flex;flex-direction: row;justify-content: center;align-content: center;">
+                <textarea cols="20" rows="1" style="border: 2px solid;border-radius:4%;resize:none;padding: .5rem;">Contact Email</textarea><strong style="font-size: xx-large;">+</strong>
+            </div>
+            <div style="display: flex;flex-direction: row;justify-content: space-evenly;color: #faf4ed;">
+                <div class="savecontactbutton">
+                    Save Contact                    
+                </div>
+                <div class="closebutton">
+                    Close
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
