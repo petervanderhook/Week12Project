@@ -2,16 +2,16 @@
 
 const contactList = [  
     { 
-        name: "Oliver Queen", 
+        name: "Jabba Hutt", 
         phone: "778-555-1234", 
         address: "101 Main St, Star City, USA",    
-        email: "greenarrow@watchtower.com",  
+        email: "smellyemail@stinky.com",  
     },   
     {    
-        name: "Jessica Cruz",    
+        name: "Tupak Shakur",    
         phone: "123-555-5555",    
-        address: "Portland Oregon",    
-        email: "greenlantern@watchtower.com",  
+        address: "Pompeii Italy",    
+        email: "tpratchett@discworld.com",  
     }
 ]
 
