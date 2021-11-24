@@ -1,95 +1,257 @@
+/* CSS that is common between mobile and desktop
+ mobile specific CSS specified for my own clarity*/
 
 * {
-    font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: calc(12px + 0.25vw);
+  font-family: 'Merriweather Sans', sans-serif;
+  color: #232136; /*rose pine moon base*/
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
-body {
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-}
+
+
 nav {
-    align-items: center;
-    display: flex;
+  display: flex;
+  background-color: #9ccfd8; /*rose pine moon foam*/
+  top: 0;
+  /*mobile css below: */
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  z-index: 1;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/*mobile css*/
+nav * {
+  flex-grow: 1;
+}
+
+nav > h1,h2 {
+  display: flex;
+  justify-content: center;
+  /*mobile css below: */
+  text-align: center;
+  align-items: center;
+  width: 30vw;
+  height: 100%;
+}
+
+.nav-home {
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  margin-bottom: 1em;
+}
+
+body {
+  display: flex;
+  background-color: rgba(224,222,245,0.6)	; /*rose pine moon text #e0def4*/
+  /*mobile css below: */
+  flex-direction: column;
+}
+
+div {
+  margin-bottom: 1em;
+}
+
+div.main {
+  display: flex;
+  /*mobile css below: */
+  margin-top: 10vh;
+  padding-top: 2.5vh;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+}
+
+div.contact {
+  display: flex;
+  background-color:	#c4a7e7; /*rose pine moon iris*/
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  /*mobile css below: */
+  width: 70vw;
+  height: 25vh;
+  margin: 2.5vh 10vw;
+}
+
+div.contact p {
+  display: flex;
+  position: relative;
+  width: 90%;
+  height: 90%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+div.contactedit, div.contactinfo {
+  width: 25vw;
+  margin: 0 1vw;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 300px;
+  height: 100%;
+  margin-top: 2.5vh;
+}
+
+div.contactinfo {
+  row-gap: 5vh;
+}
+
+div.contactimg, div.contactname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.contactname {
+  justify-content: space-between;
+  font-size: 1.25rem;
+}
+
+img {
+  object-fit: contain;
+  margin-bottom: 1em;
+}
+
+img.profilepic {
+  border-radius: 50%;
+  border: 2px solid #393552; /*rose pine moon overlay*/
+  opacity: 0.9;
+  width: 30%;
+  min-width: 80px;
+  height: auto;
+}
+
+div.form, form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+form {
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+input {
+  padding: 1vh;
+  width: 100%;
+  background-color: rgba(196,166,232,0.75); /*rose pine moon iris*/ 
+  border-color: #59546d; /*rose pine moon inactive*/ 
+}
+
+::placeholder {
+  color: #393552; /*rose pine moon overlay*/
+}
+
+div.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+button.button {
+  padding: 1vh;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0 1.25vw;
+}
+
+button.save, button.edit {
+  background-color: rgba(61,143,176,0.8) /*rose pine moon pine #3e8fb0*/
+}
+
+button.cancel {
+  background-color: rgba(235,112,145,0.8); /*rose pine moon love #eb6f92*/
+}
+
+button.close {
+  background-color: rgba(130,125,156,0.8); /*rose pine moon subtle #817c9c*/
+}
+
+div.inputcontainer {
+  display: flex;
+}
+
+button.extrafield {
+  border: none;
+  background-color: transparent;
+  font-size: 2.3rem;
+  margin-left: 0.5vw;
+}
+
+#extranamefield {
+  color: transparent;
+}
+
+/* CSS for desktop, assumed mobile device width <480px
+ notes on desktop vs mobile css left for myself*/
+
+@media all and (min-width:480px) {
+  body {
+    flex-direction: row; /*overwrite mobile*/
+    height: 100%;
+    width: 100%;
+  }
+
+  nav {
+    flex-direction: column;
+    width: 20vw;
+    min-height: 100vh;
     position: sticky;
-    top: 0;
-    left: 0;
+    padding-top: 5vh;
+    /*reset from mobile: */
+    justify-content: initial;
+    align-items: initial;
+  }
+
+  /*overwrite mobile*/
+  nav * {
+    flex-grow: initial;
+  }
+
+  nav > h1,h2 {
     flex-direction: column;
-    height: 100vh;
-    background-color: #9ccfd8;
-    min-width: 25vw;
-}
+    width: 100%;
+    height: 8vh;
+    padding: 2vw;
+    /*overwrite mobile: */
+    text-align: initial;
+    align-items: initial;
+  }
 
-.navbutton {
-    margin-top: 1rem;
-    padding: .5rem;
-    background-color: #9ccfd850;
-}
-.navbutton:hover {
-    margin-top: 1rem;
-    padding: .5rem;
-    background-color: #23213630;
-}
-.gridbox {
-    display: grid;
-    grid-template-columns: 1fr, 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "topleft topright"
-        "bottomleft bottomright" ;
-    width: 68vw; /*30vw width for each block in grid*/
-    column-gap: 3vw;
-    row-gap: 5vw;
-    min-height: 95vh; /* 40vh heigh for each block in grid */
-    margin-top: 2vh;
-    margin-left: 4vw;
+  .nav {
+    align-items: center;
+    text-align: center;
+  }
 
-}
-.bodyclass {
-    background-color: 	#faf4ed;
-    min-width: 75vw;
-    padding: 0;
-    height: 100vh;
-}
+  div.main {
+    width: 80vw;
+    min-height:100%;
+    flex-wrap: wrap;
+    padding: 10vh 3.25vw;
+    /*overwrite mobile: */
+    flex-direction: row;
+    margin-top: 0;
+    align-items: initial;
+  }
 
-.topleft {
-    grid-area: topleft;
-    margin: 0%;
-    display: flex;
-    flex-direction: column;
-    
-
+  div.contact {
+    width: 15vw;
+    height: 15vh;
+    margin: 1vw 4.5vw;
+  }
 }
-.contactfont {
-    font-style: 'Nunito', sans-serif;
-}
-
-.contactsGrid {
-    margin: 5vw;
-    display: grid;
-    grid-template-columns: auto ;
-    grid-template-rows: 9rem;
-    grid-template-areas: "contactgridbox contactgridbox contactgridbox";
-    gap: 5vw;
-
-}
-
-.contactsGrid > div {
-    background-color: #23213620;
-    padding: 2px;
-}
-
-.savecontactbutton {
-    margin: 0%;
-    border: 0px;
-    border-radius: 5%;
-    padding: 1rem;
-    background-color: #56949f;
-}
-.closebutton {
-    margin: 0%;
-    border: 0px;
-    border-radius: 5%;
-    padding: 1rem;
-    background-color:#d7827e;
-}
-
