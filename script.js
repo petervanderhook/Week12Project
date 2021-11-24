@@ -15,7 +15,6 @@ const contactList = [
     }
 ]
 
-
 function cleanUpIndex() {
     const main = document.querySelector('.main')
     main.remove()
@@ -36,8 +35,6 @@ function cleanUpView() {
     const body = document.querySelector('body')
     body.insertAdjacentHTML('beforeend', '<div class="main"></div>')
 }
-
-
 
 function createSingleIndex(contact) {
     const contactList = [ {
@@ -114,23 +111,11 @@ function renderView(contact) {
 }
 
 
+const contactsButton = document.querySelector('#contactshome.nav-home')
+contactsButton.addEventListener('click', sidebarContactsClick)
+function sidebarContactsClick(contacts) {
+    contacts.preventDefault()
+    cleanUpIndex()
+    renderIndex(contactList)
+}
 
-
-/*function renderIndex(contact_array) {
-    for (i = 0; i++; i < length(contact_array) ) {
-        let contactcard = document.createElement("div")
-        contactcard.classList.add('contactinfo')
-        let contactname = contactcard.createElement("div")
-        let contactemail = contactcard.createElement("div")
-        let contactphone = contactcard.createElement("div")
-        let contactname = contactcard.createElement("div")
-        contactname.classList.add("contactname")
-        contactname.appendChild(contact_array[i].name)
-        contactemail.classList.add("contactemail")
-        contactname.appendChild(contact_array[i].email)
-        contactphone.classList.add("contactphone")
-        contactname.appendChild(contact_array[i].phone)
-        contactaddress.classList.add("contactaddress")
-        contactname.appendChild(contact_array[i].address)
-    }
-}*/
