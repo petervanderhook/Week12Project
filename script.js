@@ -36,26 +36,26 @@ function cleanUpView() {
     body.insertAdjacentHTML('beforeend', '<div class="main"></div>')
 }
 
-function createSingleIndex(contact) {
-    const contactList = [ {
-        name: contact.name,
-        phone: contact.phone,
-        address: contact.address,
-        email: contact.email
-    } ]
-    return contactList
+let contactCardButton = document.querySelectorAll('.contact')
+function createSingleIndex(name) {
+    for(let i = 0; i < contactList.length; i++) {
+        if (contactList[i].name == name) {
+            renderView(contactList[i])
+        }
+    }
 }
-
+ 
 function renderIndex(contact_array) {
     let contact = document.querySelector('.main')
     let html = '';
     for(let i = 0; i < contact_array.length; i++ ) {
-        html += ('beforeend', `<a href="page3.html"><div class="contact"><p>${contact_array[i].name}</p></div></a>`);
+        html += ('beforeend', `<a><div class="contact"><a href="index.html">${contact_array[i].name}</a>
+        </div></a>`);
     }
     contact.insertAdjacentHTML('beforeend', html)
 }
 
-function renderCreate() {
+function renderCreate(  ) {
     let contactedit = document.querySelector('.main')
     contactedit.insertAdjacentHTML('beforeend', `<div class="contactedit">
     <div class="contactimg">
@@ -92,37 +92,60 @@ function renderCreate() {
 </div>`)
 }
 
-function renderView(contact) {
-    let contactinfo = document.querySelector('.main');
-    contactinfo.insertAdjacentHTML('beforeend', `<div class="contactinfo">
-    <div class="contactname">
-        ${contact.name}
-        <img src="./img/profile.jpg" class="profilepic" alt="Profile picture">
-    </div>
-    <div class="contactemail">email: ${contact.email}</div>
-    <div class="contactphone">cell: ${contact.phone}</div>
-    <div class="contactaddress">address: ${contact.address}</div>
-    <div class="buttons">
-        <button class="button edit" value="Edit">Edit</button>
-        <button class="button close" value="Close">Close</button>
-    </div>
-</div>`)
-
+function renderView(contactname) {
+    for (let i = 0; i < contactList.length; i++) {
+        if (contactList[i].name == contactname) {
+            let contactinfo = document.querySelector('.main'); 
+            contactinfo.insertAdjacentHTML('beforeend', `<div class="contactinfo">
+            <div class="contactname">
+                ${contactList[i].name}
+                <img src="./img/profile.jpg" class="profilepic" alt="Profile picture">
+            </div>
+            <div class="contactemail">email: ${contactList[i].email}</div>
+            <div class="contactphone">cell: ${contactList[i].phone}</div>
+            <div class="contactaddress">address: ${contactList[i].address}</div>
+            <div class="buttons">
+                <button class="button edit" value="Edit">Edit</button>
+                <button class="button close" value="Close">Close</button>
+            </div>
+            </div>`)
+        }
+    }
 }
 
 
-const contactsButton = document.querySelector('#contactshome.nav-home')
-contactsButton.addEventListener('click', sidebarContactsClick)
-function sidebarContactsClick(contacts) {
-    contacts.preventDefault()
+var navContactButton = document.querySelector('#contactshome.nav-home')
+navContactButton.addEventListener('click', function(evt) {
+    evt.preventDefault()
+    evt.stopImmediatePropagation()
     cleanUpIndex()
     renderIndex(contactList)
-}
-const createButton = document.querySelector('#newcontact.nav')
-contactsButton.addEventListener('click', sidebarContactsClick)
-function sidebarContactsClick(contacts) {
-    contacts.preventDefault()
+
+})
+
+var createButton = document.querySelector('#newcontact.nav')
+createButton.addEventListener('click', function(evt) {
+    evt.preventDefault()
+    evt.stopImmediatePropagation()
     cleanUpIndex()
     renderCreate()
-}
+})
 
+
+
+renderIndex(contactList)
+var contactButtons = document.querySelectorAll('.contact')
+for (let i = 0; i < contactButtons.length; i++ ){ 
+    contactButtons[i].addEventListener('click', function(evt){
+        evt.preventDefault()
+        evt.stopImmediatePropagation()
+        let contactname = evt.target.innerHTML
+        console.log(contactname)
+        cleanUpIndex()
+        console.log("cleaned up index")
+        renderView(contactname)
+        console.log("rendered index")
+    
+    })
+
+}
