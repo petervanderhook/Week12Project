@@ -49,8 +49,8 @@ function renderIndex(contact_array) {
     let contact = document.querySelector('.main')
     let html = '';
     for(let i = 0; i < contact_array.length; i++ ) {
-        html += ('beforeend', `<a><div class="contact"><a href="index.html">${contact_array[i].name}</a>
-        </div></a>`);
+        html += ('beforeend', `<div class="contact"><a href="page2.html">${contact_array[i].name}</a>
+        </div>`);
     }
     contact.insertAdjacentHTML('beforeend', html)
 }
@@ -111,6 +111,7 @@ function renderView(contactname) {
             </div>`)
         }
     }
+    viewButtonsEvent()
 }
 
 
@@ -120,8 +121,10 @@ navContactButton.addEventListener('click', function(evt) {
     evt.stopImmediatePropagation()
     cleanUpIndex()
     renderIndex(contactList)
+    contactButtonsEvent()
 
 })
+
 
 var createButton = document.querySelector('#newcontact.nav')
 createButton.addEventListener('click', function(evt) {
@@ -131,21 +134,39 @@ createButton.addEventListener('click', function(evt) {
     renderCreate()
 })
 
-
-
 renderIndex(contactList)
-var contactButtons = document.querySelectorAll('.contact')
-for (let i = 0; i < contactButtons.length; i++ ){ 
-    contactButtons[i].addEventListener('click', function(evt){
+contactButtonsEvent()
+function contactButtonsEvent() {
+    var contactButtons = document.querySelectorAll('a[href="page2.html"]')
+    for (let i = 0; i < contactButtons.length; i++ ){ 
+        contactButtons[i].addEventListener('click', function(evt){
+            evt.preventDefault()
+            evt.stopImmediatePropagation()
+            let contactname = evt.target.innerHTML
+            console.log(contactname)
+            cleanUpIndex()
+            renderView(contactname)
+            
+        })
+    }
+}
+
+function viewButtonsEvent() {
+    var closeViewButton = document.querySelector('.button.close')
+    closeViewButton.addEventListener('click', function(evt) {
         evt.preventDefault()
         evt.stopImmediatePropagation()
-        let contactname = evt.target.innerHTML
-        console.log(contactname)
         cleanUpIndex()
-        console.log("cleaned up index")
-        renderView(contactname)
-        console.log("rendered index")
-    
-    })
+        renderIndex(contactList)
+        contactButtonsEvent()
+    }) 
 
+    var editViewButton = document.querySelector('.button.edit')
+    editViewButton.addEventListener('click', function(evt) {
+        evt.preventDefault()
+        evt.stopImmediatePropagation()
+        cleanUpIndex()
+        renderIndex(contactList)
+        contactButtonsEvent()
+    }) 
 }
